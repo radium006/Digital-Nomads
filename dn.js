@@ -4,8 +4,10 @@
 
 const walkaility_api = "http://api.walkscore.com/score?format=json&apikey=ffd1c56f9abcf84872116b4cc2dfcf31"
 
-let walkability = document.getElementById("walkability")
 
+let walkability = document.getElementById("walkability")
+let listCity = document.getElementById("listCity")
+let btnSubmitCity = document.getElementById(btnSubmitCity)
 
 
 

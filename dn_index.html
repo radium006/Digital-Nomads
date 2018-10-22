@@ -3,38 +3,71 @@
 <head>
     <link rel="stylesheet" type="text/css" href="dn.css"></link>
 
-
-
 </head>
 
 <body>
-
+    <div>
+        <form id="listCity" onsubmit="event.preventDefault()">
+            <input name="title" type="text" placeholder="City name" />
+            <br><br>
+            <button id="btnSubmitCity">Submit</button>
+        </form>
+    </div>
     <div class="container">
-        <div><h1>new stuff</h1></div>
+        <div>
+            <h1>Digital Nomad City Information</h1>
+        </div>
 
-            <div id="walkability">
+        <div id="walkability">
 
-            </div> 
+        </div>
+        <div class="linksContainer">
+            <a href="placeholder">
+                <h2> City </h2>
 
+                <img class="linkThumbNail" src="https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+            </a>
+        </div>
+        <div>
+            <a href="placeholder">
+                <h2> Travel </h2>
+
+                <img class="linkThumbNail" src="https://transporteditor.files.wordpress.com/2014/01/plane-train.jpg">
+            </a>
+        </div>
+        <div>
+            <a href="placeholder">
+                <h2> Blogs </h2>
+
+                <img class="linkThumbNail" src="https://gradstudents.carleton.ca/wp-content/uploads/Blog_1.jpg">
+            </a>
+        </div>
+        <div>
+            <a href="placeholder">
+                <h2> Education </h2>
+
+                <img class="linkThumbNail" src="https://educationaltechnology.net/wp-content/uploads/2018/05/online-learning-3.png">
+            </a>
+        </div>
 </body>
 
-<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script src=" https://www.gstatic.com/firebasejs/5.5.4/firebase.js "></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
 
-<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js "></script>
 <script>
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyCalG1ZZj2gJ2FMRNsMDiYhNInNQx7osNU",
-        authDomain: "digital-nomad-3c36e.firebaseapp.com",
-        databaseURL: "https://digital-nomad-3c36e.firebaseio.com",
-        projectId: "digital-nomad-3c36e",
-        storageBucket: "digital-nomad-3c36e.appspot.com",
-        messagingSenderId: "86292575147"
+        apiKey: "AIzaSyCalG1ZZj2gJ2FMRNsMDiYhNInNQx7osNU ",
+        authDomain: "digital-nomad-3c36e.firebaseapp.com ",
+        databaseURL: "https://digital-nomad-3c36e.firebaseio.com ",
+        projectId: "digital-nomad-3c36e ",
+        storageBucket: "digital-nomad-3c36e.appspot.com ",
+        messagingSenderId: "86292575147 "
     };
     firebase.initializeApp(config);
 </script>
-<script src="dn.js"></script>
+<script src="dn.js "></script>
 
 </html>

@@ -1,15 +1,29 @@
-/* @media (max-width: 480px) {
-    .menuItem {
-        display: flex;
-        flex-direction: row;
-        font-size: 18px;
-        margin: 20px;
-        background-color: blue;
-        width: 50px;
-    }
-} */
+body{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 
-@media (min-width: 480px) {
+}
+
+.linksContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.buttonElm{
+    width: 300px;
+    height: 300px;
+}
+
+.buttonElm img{
+    width: 150px;
+    height: 150px;
+}
+
+
+/* @media (min-width: 480px) {
     .linksContainer {
         display: flex;
     }
@@ -17,10 +31,10 @@
         width: 200px;
         height: auto;
     } */
-    .linkThumbNail {
+    /* .linkThumbNail {
         flex-flow: wrap;
         justify-content: space-around;
         width: 500px;
         height: auto;
     }
-}
+} */ 

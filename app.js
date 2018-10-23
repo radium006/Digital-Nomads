@@ -2,6 +2,7 @@
 
 const numbeo_url = 'https://www.numbeo.com/api/'
 const api_key = 'k4teeoitrnme6c'
+const walkscore_key = 'ffd1c56f9abcf84872116b4cc2dfcf31'
 
 
 submitButton = $('#submit-button')
@@ -12,8 +13,9 @@ submitButton = $('#submit-button')
 function searchForCity(cityList, cityToCheck){
     for(i=0;i<cityList.length;i++){
         if (cityList[i].city.toLowerCase() == cityToCheck.toLowerCase()){
-            var longitude = cityList[i].longitude
-            var latitude = cityList[i].latitude
+            let longitude = cityList[i].longitude
+            let latitude = cityList[i].latitude
+            
             console.log(longitude)
             console.log(latitude)
         }

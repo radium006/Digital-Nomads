@@ -1,8 +1,3 @@
-
-
-
-
-
 submitButton = $('#submit-button')
 
 submitButton.click(function(){
@@ -12,6 +7,3 @@ submitButton.click(function(){
     window.location = `landing.html?city=${cityName}`
         
     })
-
-
-//--------------------------------------------------------------------//

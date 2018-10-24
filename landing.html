@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css"></link>
+
+    <script>
+
+        // access the query string 
+
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div id ="title"></div>
+        <div class = 'api-area'>
+            <div id = "stat-box"><h2>City Stats</h2></div>
+            <div id = 'weather'></div>
+            <div id = 'walk'></div>
+        </div>
+        <div id = 'travel'><h1>Travel</h1>
+            <div style="height:400px;width: 400px;">
+                    <div id="kayakSearchWidgetContainer"></div>
+                    </div>
+                    <script type="text/javaScript" src="https://www.kayak.com/affiliate/widget-v2.js"></script>
+                    <script type="text/javaScript">
+                    KAYAK.embed({
+                    container: document.getElementById("kayakSearchWidgetContainer"),
+                    hostname: "www.kayak.com",
+                    autoPosition: true,
+                    defaultProduct: "flights",
+                    enabledProducts: ["hotels", "flights"],
+                    startDate: "2018-10-02",
+                    endDate: "2018-10-28",
+                    //origin: "New York, NY",
+                    //destination: "",
+                    ssl: true,
+                    affiliateId: "acme_corp",
+                    isInternalLoad: false,
+                    lc: "en",
+                    cc: "us",
+                    mc: "EUR"
+                    });
+                    </script>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="jQuery.js"></script>
+
+<script src="landing.js"></script>
+
+</html>

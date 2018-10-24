@@ -12,7 +12,7 @@ $(document).ready(function(){ //might be a problem
     $.get((numbeo_url + "cities?api_key=" + api_key), function(data){  
         searchForCity(data.cities, theCity) 
     })
-    $.get((numbeo_url + "indices?api_key=" + api_key + "&query=" + theCity), function(data){
+    $.get((numbeo_url + "indices?api_key=" + api_key + "&query=" + theCity.replace(/\s/g,'')), function(data){
         getStats(data)
     })
 
@@ -20,17 +20,21 @@ $(document).ready(function(){ //might be a problem
 
 
     function getStats(city){
-        $("#stat-box").append(`<p>Quality of life Index: ${city.quality_of_life_index}</p>`)
-        $("#stat-box").append(`<p>Cost of Living Index: ${city.cpi_index}</p>`)
-        $("#stat-box").append(`<p>Rent Index: ${city.rent_index}</p>`)
-        $("#stat-box").append(`<p>Crime Index: ${city.crime_index}</p>`)
+        $("#stat-box").append(`<p>Index realative to New York City</p>`)
+        $("#stat-box").append(`<p>Quality of life Index: ${Math.round(city.quality_of_life_index)}</p>`)
+        $("#stat-box").append(`<p>Cost of Living Index: ${Math.round(city.cpi_index)}</p>`)
+        $("#stat-box").append(`<p>Rent Index: ${Math.round(city.rent_index)}</p>`)
+        $("#stat-box").append(`<p>Crime Index: ${Math.round(city.crime_index)}</p>`)
+        $("#stat-box").append(`<p>Healthcare Index: ${Math.round(city.health_care_index)}</p>`)
         
     }
     
     
     function searchForCity(cityList, cityToCheck){ //make more efficent
         let found = false;
-        console.log("in Search for City")
+        //console.log("in Search for City")
+        //console.log(cityToCheck)
+        //console.log(cityToCheck.replace(/\s/g,''))
         for(i=0;i<cityList.length;i++){
             if (cityList[i].city.toLowerCase() == cityToCheck.toLowerCase()){
                 found = true;

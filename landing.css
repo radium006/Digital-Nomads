@@ -1,12 +1,10 @@
-
-body{
+body {
     width: 80%;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
 }
 
-
-.container{
+.container {
     display: flex;
     /* align-items: center; */
     font-family: "Lucida Console", Monaco, monospace;
@@ -15,7 +13,7 @@ body{
 .map {
     height: 400px;
     width: 400px;
-  }
+}
 
 .api-area {
     display: block;
@@ -34,21 +32,10 @@ body{
     font-family: "Lucida Console", Monaco, monospace; 
 }
 
+#travel-container {
+    margin: 15px;
+    padding: 20px;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Brent's code */

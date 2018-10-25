@@ -31,3 +31,9 @@ body {
 
 
 /* Brent's code */
+
+#blogbox {
+    padding: 50px;
+    margin: 15px;
+    border-style: double;
+}

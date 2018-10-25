@@ -80,3 +80,7 @@ h1 {
 #weather {
     text-align: center;
 }
+
+#infoBox{
+    padding-right: 10px;
+}

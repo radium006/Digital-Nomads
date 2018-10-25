@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css"></link>
-
+    <link rel="stylesheet" type="text/css" href="landing.css"></link>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/css/ol.css" type="text/css">
     <script>
 
         // access the query string 
@@ -13,13 +13,23 @@
 </head>
 
 <body>
+    
+    <div id ="title"></div>
     <div class="container">
-        <div id ="title"></div>
+        
         <div class = 'api-area'>
             <div id = "stat-box"><h2>City Stats</h2></div>
             <div id = 'weather'></div>
-            <div id = 'walk'></div>
+            <div id = 'walk'>
+                <div id="walkPic"></div>
+                <div id="walkInfo"></div>
+            </div>
+            <div id = 'wifi'>
+                <ul id='coffee'></ul>
+                <ul id='workspace'></ul>
+            </div>
         </div>
+        <div id="travel-container">
         <div id = 'travel'><h1>Travel</h1>
             <div style="height:400px;width: 400px;">
                     <div id="kayakSearchWidgetContainer"></div>
@@ -45,13 +55,15 @@
                     });
                     </script>
         </div>
+        <div id='theMap'></div>
+    </div>
     </div>
 
 </body>
 
 
 <script src="jQuery.js"></script>
-
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/build/ol.js"></script>
 <script src="landing.js"></script>
 
 </html>

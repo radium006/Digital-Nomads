@@ -2,13 +2,15 @@ const numbeo_url = 'https://www.numbeo.com/api/'
 const api_key = 'k4teeoitrnme6c'
 const walkscore_key = 'ffd1c56f9abcf84872116b4cc2dfcf31'
 const weather_key  = '4de3768c62b67fe359758977a3efc069';
+const yelp_apiKey = "GJ_RZBfY4WW8w2Vs4xd45U4KM751aG4PQsfYJB9d5nH3X-UvQgNKl53AxblclXsLu4-YpEkBIQB1qfABJl0ekLGnOcLQrHcRYo5fDF8w4GklXkKZ8ax_8ZPfqQXOW3Yx"
+const walkscore_url= `http://api.walkscore.com/score?format=json`
 
 $(document).ready(function(){ //might be a problem
 
     let urlParams = new URLSearchParams(window.location.search);
     var theCity = urlParams.get('city')
     console.log(theCity)
-    ///main
+    ///-------------------------------main-----------------------------------//
     $.get((numbeo_url + "cities?api_key=" + api_key), function(data){  
         searchForCity(data.cities, theCity) 
     })
@@ -17,7 +19,8 @@ $(document).ready(function(){ //might be a problem
     })
 
     getWeather(theCity)
-
+    
+    getWifi(theCity)
 
     function getStats(city){
         $("#stat-box").append(`<p>Index realative to New York City</p>`)
@@ -40,7 +43,7 @@ $(document).ready(function(){ //might be a problem
                 found = true;
                 var longitude = cityList[i].longitude
                 var latitude = cityList[i].latitude
-                $("#stat-box").append(`<p>Longitude: ${longitude}</p><p>Latitude: ${latitude}</p>`)
+                //$("#stat-box").append(`<p>Longitude: ${longitude}</p><p>Latitude: ${latitude}</p>`)
                 break;
             }
         }
@@ -49,7 +52,8 @@ $(document).ready(function(){ //might be a problem
         }
 
         populateTitle(cityToCheck)
-
+        getWalkscore(longitude,latitude,cityToCheck)
+        getMap(longitude,latitude)
     }
 
     function populateTitle(city){
@@ -77,7 +81,7 @@ $(document).ready(function(){ //might be a problem
             $.each(data.weather, function(index, val){
 
 
-              wf += `<h1> ${data.name}</h1>
+              wf += `
               </b><div><img src=weatherIcons/${val.icon}.png><p> <div><h3>${mainTemp}&deg;F | ${val.main}</h3></div>
               <div>High: ${maxTemp} | Low: ${minTemp}</div>
               <div>Humidity: ${humidity} %</div>
@@ -95,5 +99,96 @@ $(document).ready(function(){ //might be a problem
   
     }
 
+    function getWifi(city){
+        
+        foodList = $('#coffee')
+        workspaces = $('#workspace')
+        cityLocation = city
+        //returnBtn = $('#returnBtn')
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=wifi&limit=5&location=${cityLocation}&sort_by=review_count`, {
+        headers: {
+            Authorization: `Bearer ${yelp_apiKey}`
+            }
+            }).then(function(response){
+                console.log(response)
+            return response.json()
+            }).then(function(businesses){
+                displayCoffeeShops(businesses)
+        })
+        
+
+
+        function displayCoffeeShops(businessData){
+            let businessArray = businessData.businesses
+            var businessInfo = businessArray.map(function(business){
+
+            return `<li id = "lis">
+             <div class = "physLocation">
+             <div><label>Name: ${business.name} | Phone: ${business.phone}</label></div>
+             <div><label>Address: ${business.location.address1}, ${business.location.city},${business.location.state} ${business.location.zip_code}</label></div>
+            </div>
+    
+             <div class= "reviews">
+             <label>Price: ${business.price}<label>
+             <label>Reviews: ${business.review_count}</label>
+             <label>Rating: ${business.rating}</label>
+             </div>
+             </li>`
+    
+        
+            }) 
+        coffee.innerHTML = businessInfo.join(" ")
+
+    }
+
+        function displaySharedWork(businessData) {
+            let businessArray = businessData.businesses
+            let businessInfo = businessArray.map(function(business){
+
+            return `<li id = "lis">
+            <div class = "physLocation">
+            <div><label>Name: ${business.name} | Phone: ${business.phone}</label></div>
+            <div><label>Address: ${business.location.address1}, ${business.location.city},${business.location.state} ${business.location.zip_code}</label></div>
+            </div>
+    
+            <div class= "reviews">
+            <label>Reviews: ${business.review_count}</label>
+            <label>Rating: ${business.rating}</label>
+            </div>
+            </li>`
+        })
+
+        workspaces.innerHTML = businessInfo.join('')
+
+        }
+    }
+
+    function getWalkscore(long, lat, city){
+        $.get((walkscore_url + "&address=" + city + '&lat=' + lat + '&lon=' + long + '&transit=1&bike=1&wsapikey=' + walkscore_key), function(data){
+            console.log(data)
+            $('#walkPic').html(`<img src=${data.logo_url}>`)
+            $('#walkInfo').html(`<p>Walk Score rating: ${data.walkscore} (${data.description})</p><p>Bikeablility: ${data.bike.score} (${data.bike.description})</p> <p>Transit: ${data.transit.score} (${data.transit.description})</p>`)
+        }) 
+
+    }
+
+    function getMap(lon, lat){
+        $('#theMap').html(`<div id="map" class="map"></div>
+        <script type="text/javascript">
+          var map = new ol.Map({
+            target: 'map',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([${lon}, ${lat}]),
+              zoom: 10
+            })
+          });
+        </script>`)
+    }
 
 })
+

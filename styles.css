@@ -47,9 +47,11 @@ header {
     }
   }
   
-  .container{
-      /* border: 13px, solid, black;
-      background-color: blue; */
+  /*------------------Landing page styling gies below----------------- */
+
+  .map {
+    height: 400px;
+    width: 400px;
   }
   
   /* Collapse 

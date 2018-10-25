@@ -1,12 +1,10 @@
-
-body{
+body {
     width: 80%;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
 }
 
-
-.container{
+.container {
     display: flex;
     font-family: "Lucida Console", Monaco, monospace;
 }
@@ -14,18 +12,22 @@ body{
 .map {
     height: 400px;
     width: 400px;
-  }
+}
 
 .api-area {
     display: block;
-    
-
-} 
-
-
+}
 
 #title {
     text-align: center;
     font-size: 55px;
     font-family: "Lucida Console", Monaco, monospace;
 }
+
+#travel-container {
+    margin: 15px;
+    padding: 20px;
+}
+
+
+/* Brent's code */

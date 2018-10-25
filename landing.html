@@ -4,66 +4,62 @@
     <link rel="stylesheet" type="text/css" href="landing.css"></link>
     <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/css/ol.css" type="text/css">
     <script>
-
-        // access the query string 
-
-
+        // access the query string
     </script>
 
 </head>
 
 <body>
-    
-    <div id ="title"></div>
+
+    <div id="title"></div>
     <div class="container">
-        
-        <div class = 'api-area'>
-            <div id = "stat-box"><h2>City Stats</h2></div>
-            <div id = 'weather'></div>
-            <div id = 'walk'>
+
+        <div class='api-area'>
+            <div id="stat-box">
+                <h2>City Stats</h2>
+            </div>
+            <div id='weather'></div>
+            <div id='walk'>
                 <div id="walkPic"></div>
                 <div id="walkInfo"></div>
             </div>
-            <div id = 'wifi'>
+            <div id='wifi'>
                 <ul id='coffee'></ul>
                 <ul id='workspace'></ul>
             </div>
         </div>
         <div id="travel-container">
-        <div id = 'travel'><h1>Travel</h1>
-            <div style="height:400px;width: 400px;">
+            <div id='travel'>
+                <h1>Travel</h1>
+                <div style="height:400px;width: 400px;">
                     <div id="kayakSearchWidgetContainer"></div>
-                    </div>
-                    <script type="text/javaScript" src="https://www.kayak.com/affiliate/widget-v2.js"></script>
-                    <script type="text/javaScript">
-                    KAYAK.embed({
-                    container: document.getElementById("kayakSearchWidgetContainer"),
-                    hostname: "www.kayak.com",
-                    autoPosition: true,
-                    defaultProduct: "flights",
-                    enabledProducts: ["hotels", "flights"],
-                    startDate: "2018-10-02",
-                    endDate: "2018-10-28",
-                    //origin: "New York, NY",
-                    //destination: "",
-                    ssl: true,
-                    affiliateId: "acme_corp",
-                    isInternalLoad: false,
-                    lc: "en",
-                    cc: "us",
-                    mc: "EUR"
-                    });
-                    </script>
+                </div>
+                <script type="text/javaScript" src="https://www.kayak.com/affiliate/widget-v2.js"></script>
+                <script type="text/javaScript">
+                    KAYAK.embed({ container: document.getElementById("kayakSearchWidgetContainer"), hostname: "www.kayak.com", autoPosition: true, defaultProduct: "flights", enabledProducts: ["hotels", "flights"], startDate: "2018-10-02", endDate: "2018-10-28", //origin:
+                    "New York, NY", //destination: "", ssl: true, affiliateId: "acme_corp", isInternalLoad: false, lc: "en", cc: "us", mc: "EUR" });
+                </script>
+            </div>
+            <div id='theMap'></div>
+            <div id='blogbox' style='overflow: auto; width:500px; height:100px;'>
+                <a href="https://digitalnomadsforum.com/?gclid=Cj0KCQjw08XeBRC0ARIsAP_gaQADdFUh4svypfVR5Jsbhadrq3lpN-ui9sWgunk1IZCXNlO4pg7TD_oaAlryEALw_wcB">Digital Nomad Forum</a>
+                <br> <br>
+                <a href="http://www.tropicalmba.com/">Tropical MBA</a>
+                <br> <br>
+                <a href="https://nomadlist.com/blog/">Nomad List Blog</a>
+                <br> <br>
+                <a href="https://www.upwork.com/blog/2014/03/top-10-digital-nomad-blogs/">Link To 10 Blogs via Upworks</a>
+                <br> <br>
+
+            </div>
         </div>
-        <div id='theMap'></div>
-    </div>
     </div>
 
 </body>
 
 
-<script src="jQuery.js"></script>
-<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/build/ol.js"></script>
-<script src="landing.js"></script>
+<script src=" jQuery.js "></script>
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/build/ol.js "></script>
+<script src="landing.js "></script>
 
 </html>

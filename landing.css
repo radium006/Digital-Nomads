@@ -4,7 +4,7 @@ body {
     margin-right: auto;
 }
 
-h1{
+h1 {
     border-bottom: 2px double black;
     background-color: aquamarine;
     text-align: center;
@@ -43,21 +43,21 @@ h1{
     margin-left: auto;
 }
 
-#walk{
+#walk {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-#walkPic{
+
+#walkPic {
     display: flex;
     align-items: center;
-    
 }
 
-
-#walkInfo{
+#walkInfo {
     font-size: 15px;
 }
+
 
 /* Brent's code */
 
@@ -65,8 +65,18 @@ h1{
     padding: 50px;
     margin: 15px;
     border-style: double;
+    position: relative;
+    left: 30px;
 }
 
-#weather{
+#learnbox {
+    padding: 50px;
+    margin: 15px;
+    border-style: double;
+    position: relative;
+    left: 30px;
+}
+
+#weather {
     text-align: center;
 }

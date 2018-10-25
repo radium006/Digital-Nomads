@@ -1,3 +1,4 @@
+<<<<<<< HEAD
         body {
             width: 80%;
             margin-left: auto;
@@ -52,3 +53,77 @@
             position: relative;
             left: 30px;
         }
+=======
+body {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    border-bottom: 2px double black;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    /* align-items: center; */
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.map {
+    height: 400px;
+    width: 400px;
+}
+
+.api-area {
+    display: block;
+    margin: 15px;
+    padding: 20px;
+}
+
+#wifi {
+    list-style: none;
+}
+
+#title {
+    text-align: center;
+    font-size: 55px;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+#travel-container {
+    margin: 15px;
+    padding: 20px;
+    margin-left: auto;
+}
+
+#walk{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#walkPic{
+    display: flex;
+    align-items: center;
+    
+}
+
+
+#walkInfo{
+    font-size: 15px;
+}
+
+/* Brent's code */
+
+#blogbox {
+    padding: 50px;
+    margin: 15px;
+    border-style: double;
+}
+
+#weather{
+    text-align: center;
+}
+>>>>>>> ccbdd312e85cff8c2117a67d6e506a3f654bc057

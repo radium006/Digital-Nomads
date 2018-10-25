@@ -171,7 +171,7 @@ $(document).ready(function(){ //might be a problem
     }
 
     function getMap(lon, lat){
-        $('#theMap').html(`<div id="map" class="map"></div>
+        $('#theMap').html(`<h1>City Map:</h1><div id="map" class="map"></div>
         <script type="text/javascript">
           var map = new ol.Map({
             target: 'map',

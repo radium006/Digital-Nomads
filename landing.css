@@ -6,6 +6,7 @@ body {
 
 .container {
     display: flex;
+    /* align-items: center; */
     font-family: "Lucida Console", Monaco, monospace;
 }
 
@@ -16,6 +17,12 @@ body {
 
 .api-area {
     display: block;
+    margin: 15px;
+    padding: 20px;
+}
+
+#wifi {
+    list-style: none;
 }
 
 #title {

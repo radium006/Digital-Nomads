@@ -18,8 +18,6 @@ $(document).ready(function(){ //might be a problem
         getStats(data)
     })
 
-    getWeather(theCity)
-    
     getWifi(theCity)
 
     function getStats(city){
@@ -54,20 +52,21 @@ $(document).ready(function(){ //might be a problem
         populateTitle(cityToCheck)
         getWalkscore(longitude,latitude,cityToCheck)
         getMap(longitude,latitude)
+        getWeather(theCity, longitude, latitude)
     }
 
     function populateTitle(city){
         $('#title').html(`<h1>${city}</h1>`)
     }
 
-    function getWeather(city){
+    function getWeather(city, lon, lat){
         
     
         $.ajax({
           url:'http://api.openweathermap.org/data/2.5/weather',
           dataType:'json',
           type:'GET',
-          data:{q:city, appid: weather_key, units: 'imperial'},
+          data:{lon:lon, lat:lat, appid: weather_key, units: 'imperial'},
 
           success: function(data){
             mainTemp= Math.round(data.main.temp)
@@ -105,7 +104,7 @@ $(document).ready(function(){ //might be a problem
         workspaces = $('#workspace')
         cityLocation = city
         //returnBtn = $('#returnBtn')
-        fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=wifi&limit=5&location=${cityLocation}&sort_by=review_count`, {
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=wifi&limit=5&location=${cityLocation}&categories=coffee`, {
         headers: {
             Authorization: `Bearer ${yelp_apiKey}`
             }
@@ -129,7 +128,6 @@ $(document).ready(function(){ //might be a problem
             </div>
     
              <div class= "reviews">
-             <label>Price: ${business.price}<label>
              <label>Reviews: ${business.review_count}</label>
              <label>Rating: ${business.rating}</label>
              </div>

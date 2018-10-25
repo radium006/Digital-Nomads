@@ -8,6 +8,7 @@ body{
 
 .container{
     display: flex;
+    /* align-items: center; */
     font-family: "Lucida Console", Monaco, monospace;
 }
 
@@ -18,14 +19,36 @@ body{
 
 .api-area {
     display: block;
+    margin: 15px;
+    padding: 20px;
     
-
 } 
 
-
+#wifi{
+    list-style: none;
+}
 
 #title {
     text-align: center;
     font-size: 55px;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: "Lucida Console", Monaco, monospace; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

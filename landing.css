@@ -4,6 +4,12 @@ body {
     margin-right: auto;
 }
 
+h1{
+    border-bottom: 2px double black;
+    background-color: aquamarine;
+    text-align: center;
+}
+
 .container {
     display: flex;
     /* align-items: center; */
@@ -34,8 +40,24 @@ body {
 #travel-container {
     margin: 15px;
     padding: 20px;
+    margin-left: auto;
 }
 
+#walk{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#walkPic{
+    display: flex;
+    align-items: center;
+    
+}
+
+
+#walkInfo{
+    font-size: 15px;
+}
 
 /* Brent's code */
 
@@ -43,4 +65,8 @@ body {
     padding: 50px;
     margin: 15px;
     border-style: double;
+}
+
+#weather{
+    text-align: center;
 }

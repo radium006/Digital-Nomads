@@ -81,7 +81,7 @@ $(document).ready(function(){ //might be a problem
 
 
               wf += `
-              </b><div><img src=weatherIcons/${val.icon}.png><p> <div><h3>${mainTemp}&deg;F | ${val.main}</h3></div>
+              <div><img src=weatherIcons/${val.icon}.png><p> <div><h3>${mainTemp}&deg;F | ${val.main}</h3></div>
               <div>High: ${maxTemp} | Low: ${minTemp}</div>
               <div>Humidity: ${humidity} %</div>
               <div>Wind: ${wind} mph</div>
@@ -89,8 +89,8 @@ $(document).ready(function(){ //might be a problem
               `
               // <div>Lon: ${lon}    Lat: ${lat}
             });
-
-           $("#weather").html(wf);
+            $("#weather").html(`<h1>Weather</h1>`)
+           $("#weather").append(wf);
           }
 
         })
@@ -122,16 +122,28 @@ $(document).ready(function(){ //might be a problem
             var businessInfo = businessArray.map(function(business){
 
             return `<li id = "lis">
-             <div class = "physLocation">
-             <div><label>Name: ${business.name} | Phone: ${business.phone}</label></div>
-             <div><label>Address: ${business.location.address1}, ${business.location.city},${business.location.state} ${business.location.zip_code}</label></div>
-            </div>
-    
-             <div class= "reviews">
-             <label>Reviews: ${business.review_count}</label>
-             <label>Rating: ${business.rating}</label>
+            <div id="products" class="row">
+       <div class="item  col-xs-4 col-lg-10">
+         <div class="thumbnail">
+           <img class="group-image" src="${business.image_url}" alt="" />
+           <div class="caption">
+             <h6>${business.name}</h6>
+             <div class="inner-item-text">${business.location.address1}</div>
+             <div class="inner-item-text">${business.location.city},${business.location.state}</div><br>
+             <div class="row">
+               <div class="col-xs-12 col-md-6">
+                 <p class="lead">
+                 Reviews: ${business.review_count}<br>
+                 Rating: ${business.rating}</p>
+               </div>
+               <div class="col-xs-12 col-md-6">
+                 <a class="btn btn-success" href="${business.url}"><strong>Yelp</strong></a>
+               </div>
              </div>
-             </li>`
+           </div>
+         </div>
+         </div>
+        </li>`
     
         
             }) 

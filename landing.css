@@ -1,4 +1,6 @@
-body {
+
+
+#mainContainer{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -12,8 +14,9 @@ h1 {
 
 .container {
     display: flex;
-    /* align-items: center; */
+    justify-content: center;
     font-family: "Lucida Console", Monaco, monospace;
+    
 }
 
 .map {
@@ -22,9 +25,14 @@ h1 {
 }
 
 .api-area {
-    display: block;
-    margin: 15px;
-    padding: 20px;
+    display: flex;
+    /* margin: 5px;
+    padding: 10px; */
+}
+
+.api-area p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #wifi {
@@ -38,9 +46,14 @@ h1 {
 }
 
 #travel-container {
-    margin: 15px;
-    padding: 20px;
-    margin-left: auto;
+    /* margin: 5px;
+    padding: 10px; */
+    /* margin-left: auto; */
+    display: block;
+}
+
+#box{
+    padding: 15px;
 }
 
 #walk {
@@ -52,6 +65,12 @@ h1 {
 #walkPic {
     display: flex;
     align-items: center;
+    
+}
+
+#walkPic img{
+    height: 30px;
+    width: auto;
 }
 
 #walkInfo {
@@ -61,26 +80,106 @@ h1 {
 
 /* Brent's code */
 
+#infobox-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 #blogbox {
-    padding: 50px;
-    margin: 15px;
+    /* padding: 50px; */
+    /* margin: 15px; */
     border-style: double;
     position: relative;
-    left: 30px;
+    /* left: 30px; */
 }
 
 #learnbox {
-    padding: 50px;
-    margin: 15px;
+    
+    /* margin: 15px; */
     border-style: double;
     position: relative;
-    left: 30px;
+    /* left: 30px; */
 }
 
 #weather {
     text-align: center;
+    padding-right: 5px;
+    padding-left: 5px; 
+    padding-bottom: 100px;
+    
 }
 
-#infoBox{
-    padding-right: 10px;
+#weather img{
+    width:175px;
+    height: 175px;
+    image-rendering: auto;
 }
+
+
+#infoBox{
+    padding-right: 5px;
+    padding-left: 5px; 
+    box-sizing: unset;
+    width: 400px;
+}
+
+#travel{
+    padding-right: 5px;
+    padding-left: 5px; 
+}
+
+#theMap{
+    padding-right: 5px;
+    padding-left: 5px; 
+}
+
+#workspaces, #foodList {
+    list-style: none;
+    margin: auto;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    margin: auto;
+   }
+   
+   #lis {
+   display: inline-block;
+   margin: auto;
+   
+   }
+   
+   h6 {
+      font-size: 1rem;
+   }
+   
+   
+   .thumbnail{
+      margin-bottom: 1.5rem;
+      margin-right: 1.5rem;
+      padding: 0px;
+      border: 2px black solid;
+   }
+   
+   .inner-item-text {
+      font-size: .9rem;
+   }
+   
+   .group-image{
+      width: 100%;
+      height: 10rem;
+   }
+   
+   .caption {
+      margin: auto;
+   }
+   
+   .btn-success {
+      font-size: 1rem;
+   }
+   
+   .lead {
+      font-size: .9rem;
+   }
+   
+   

@@ -121,16 +121,17 @@ $(document).ready(function(){ //might be a problem
             let businessArray = businessData.businesses
             var businessInfo = businessArray.map(function(business){
 
-            return `<li id = "lis">
+            coffee.insertAdjacentHTML('beforeend', `
+            <div class="carousel-item">
             <div id="products" class="row">
-       <div class="item  col-xs-4 col-lg-10">
-         <div class="thumbnail">
-           <img class="group-image" src="${business.image_url}" alt="" />
-           <div class="caption">
-             <h6>${business.name}</h6>
-             <div class="inner-item-text">${business.location.address1}</div>
-             <div class="inner-item-text">${business.location.city},${business.location.state}</div><br>
-             <div class="row">
+                <div class="item  col-xs-4 col-lg-12">
+                    <div class="thumbnail">
+                        <img class="group-image" src="${business.image_url}" alt="" />
+                    <div class="caption">
+                        <h6>${business.name}</h6>
+                    <div class="inner-item-text">${business.location.address1}</div>
+                    <div class="inner-item-text">${business.location.city},${business.location.state}</div><br>
+                    <div class="row">
                <div class="col-xs-12 col-md-6">
                  <p class="lead">
                  Reviews: ${business.review_count}<br>
@@ -143,11 +144,12 @@ $(document).ready(function(){ //might be a problem
            </div>
          </div>
          </div>
-        </li>`
+         <div>`) 
+        
     
         
             }) 
-        coffee.innerHTML = businessInfo.join(" ")
+        // coffee.innerHTML = businessInfo.join(" ")
 
     }
 

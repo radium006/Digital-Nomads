@@ -15,8 +15,9 @@
     
 }
 
-.container {
+.container1 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     font-family: "Lucida Console", Monaco, monospace;
     padding: 10px;
@@ -30,14 +31,14 @@
 
 .api-area {
     display: flex;
-    /* margin: 5px;
-    padding: 10px; */
-    ;
+    padding: 5px;
+    
 }
 
 .api-area p{
     margin-top: 10px;
     margin-bottom: 10px;
+   
 }
 
 #wifi {
@@ -52,9 +53,7 @@
 }
 
 #travel-container {
-    /* margin: 5px;
-    padding: 10px; */
-    /* margin-left: auto; */
+    padding: 10px;
     display: flex;
     
 }
@@ -69,6 +68,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 45px;
 }
 
 #walkPic {
@@ -83,9 +83,14 @@
 }
 
 #walkInfo {
+    padding-top: 20px;
     font-size: 15px;
+    padding: 5px;
 }
 
+#stat-box{
+    
+}
 
 /* Brent's code */
 
@@ -105,6 +110,8 @@
     border-color: black;
     position: relative;
     text-decoration: underline;
+    width: 500px;
+    height: 100px;
     /* left: 30px; */
 }
 
@@ -116,6 +123,8 @@
     border-color: black;
     position: relative;
     text-decoration: underline;
+    width: 500px;
+    height: 100px;
     /* left: 30px; */
 }
 
@@ -126,6 +135,7 @@
     padding-bottom: 100px;
     width: 400px;
     height: 400px;
+    
 
 }
 
@@ -141,6 +151,7 @@
     padding-left: 5px;
     box-sizing: unset;
     width: 400px;
+   
 }
 
 #travel{
@@ -151,6 +162,7 @@
 #theMap{
     padding-right: 5px;
     padding-left: 5px;
+    
 }
 
 #workspaces, #foodList {
@@ -272,5 +284,56 @@
     border: none;
 }
 
+@media screen and (max-width: 500px){
+    
+    .container1{
+        display: block;
+        margin: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 
+
+    .map{
+    height: 350px;
+    width: 350px;
+    }
+    .api-area{
+        flex-direction: column;
+    }
+    #travel-container{
+        flex-direction: column;
+        padding: 0px;
+        
+    }
+    #slidecontainer{
+        flex-direction: column;
+    }
+    #weather{
+        width: 100%;
+        height: auto;
+    }
+    
+    #infobox-container{
+        flex-direction: column;
+    }
+    #wifi-slides{
+        width: 100%;
+        margin: 0px;
+        margin-top: 5px;
+    }
+    #mainContainer{
+        display: flex;
+        margin-left: 0px;
+        margin-right: 0px;
+        flex-direction: column;
+
+    }
+    #learnbox{
+        width: 100%;
+    }
+    #blogbox{
+        width: 100%;
+    }
+}
  

@@ -4,12 +4,13 @@ const walkscore_key = 'ffd1c56f9abcf84872116b4cc2dfcf31'
 const weather_key  = '4de3768c62b67fe359758977a3efc069';
 const yelp_apiKey = "GJ_RZBfY4WW8w2Vs4xd45U4KM751aG4PQsfYJB9d5nH3X-UvQgNKl53AxblclXsLu4-YpEkBIQB1qfABJl0ekLGnOcLQrHcRYo5fDF8w4GklXkKZ8ax_8ZPfqQXOW3Yx"
 const walkscore_url= `http://api.walkscore.com/score?format=json`
+const homeAway_apiKey = "MDcwNTJiYjAtY2EwZC00MWFkLWI1NDYtOWQ3MWFlOTFhN2Rm"
 
 $(document).ready(function(){ //might be a problem
 
     let urlParams = new URLSearchParams(window.location.search);
     var theCity = urlParams.get('city')
-    console.log(theCity)
+    // console.log(theCity)
     ///-------------------------------main-----------------------------------//
     $.get((numbeo_url + "cities?api_key=" + api_key), function(data){  
         searchForCity(data.cities, theCity) 
@@ -19,6 +20,8 @@ $(document).ready(function(){ //might be a problem
     })
 
     getWifi(theCity)
+    getWorkspaces(theCity)
+    getRooms(theCity)
 
     function getStats(city){
         $("#stat-box").append(`<p>Index realative to New York City</p>`)
@@ -101,7 +104,7 @@ $(document).ready(function(){ //might be a problem
     function getWifi(city){
         
         foodList = $('#coffee')
-        workspaces = $('#workspace')
+        
         cityLocation = city
         //returnBtn = $('#returnBtn')
         fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=wifi&limit=5&location=${cityLocation}&categories=coffee`, {
@@ -145,35 +148,114 @@ $(document).ready(function(){ //might be a problem
          </div>
          </div>
          <div>`) 
-        
-    
-        
+            
             }) 
-        // coffee.innerHTML = businessInfo.join(" ")
 
     }
 
-        function displaySharedWork(businessData) {
-            let businessArray = businessData.businesses
-            let businessInfo = businessArray.map(function(business){
+        
+    }
 
-            return `<li id = "lis">
-            <div class = "physLocation">
-            <div><label>Name: ${business.name} | Phone: ${business.phone}</label></div>
-            <div><label>Address: ${business.location.address1}, ${business.location.city},${business.location.state} ${business.location.zip_code}</label></div>
-            </div>
-    
-            <div class= "reviews">
-            <label>Reviews: ${business.review_count}</label>
-            <label>Rating: ${business.rating}</label>
-            </div>
-            </li>`
+    function getWorkspaces(city){
+        workspaces = $('#workspace')
+        cityLocation = city
+
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=shared workspace&location=${cityLocation}&limit=5&sort_by=review_count`, {
+        headers: {
+        Authorization: `Bearer ${yelp_apiKey}`
+        }
+        }).then(function(response){
+        console.log(response)
+        return response.json()
+        }).then(function(businesses){
+            displaySharedWork(businesses)
         })
 
-        workspaces.innerHTML = businessInfo.join('')
+        function displaySharedWork(businessData){
+            let businessArray = businessData.businesses
+            var businessInfo = businessArray.map(function(business){
+
+            workspace.insertAdjacentHTML('beforeend', `
+            <div class="carousel-item">
+            <div id="products" class="row">
+                <div class="item  col-xs-4 col-lg-12">
+                    <div class="thumbnail">
+                        <img class="group-image" src="${business.image_url}" alt="" />
+                        <div class="caption">
+                            <h6>${business.name}</h6>
+                            <div class="inner-item-text">${business.location.address1}</div>
+                            <div class="inner-item-text">${business.location.city},${business.location.state}</div><br>
+                            <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                 <p class="lead">
+                    Reviews: ${business.review_count}<br>
+                    Rating: ${business.rating}</p>
+               </div>
+               <div class="col-xs-12 col-md-6">
+                 <a class="btn btn-success" href="${business.url}"><strong>Yelp</strong></a>
+               </div>
+             </div>
+           </div>
+         </div>
+         </div>
+         <div>`) 
+              
+            }) 
 
         }
     }
+
+
+    function getRooms(city){
+        
+        cityLocation = city
+
+        fetch(`https://ws.homeaway.com/public/search?q=${cityLocation}&maxBedrooms=1&maxNightlyPrice=100&pageSize=6&imageSize=LARGE`, {
+    headers: {
+    Authorization: `Bearer ${homeAway_apiKey}`
+        }
+     }).then(function(response){
+       console.log(response)
+       return response.json()
+     }).then(function(listings){
+       displayListings(listings)
+     })
+
+        function displayListings(listingData){
+            let businessArray = listingData.entries
+            var businessInfo = businessArray.map(function(homes){
+
+            rooms.insertAdjacentHTML('beforeend', `
+            <div class="carousel-item">
+            <div id="products" class="row">
+            <div class="item  col-xs-4 col-lg-12">
+            <div class="thumbnail">
+            <img class="group-image1" src="${homes.thumbnail.uri}" alt="" />
+            <div class="caption1">
+         <h6>${homes.headline}</h6>
+         <p class="inner-item-text1">
+         ${homes.description}</p>
+         <p class="inner-item-text1">
+         ${homes.accommodations}</p>
+         <div class="row" id="home_info">
+           <div class="col-xs-12 col-md-6">
+             <p class="lead1">
+             $${homes.priceQuote.averageNightly}</p>
+           </div>
+           <div class="col-xs-12 col-md-6">
+             <a class="btn btn-success" href="${homes.listingUrl}"><strong>HomeAway</strong></a>
+           </div>
+         </div>
+       </div>
+     </div>
+     </div>
+         <div>`) 
+              
+            }) 
+
+        }
+    }
+
 
     function getWalkscore(long, lat, city){
         $.get((walkscore_url + "&address=" + city + '&lat=' + lat + '&lon=' + long + '&transit=1&bike=1&wsapikey=' + walkscore_key), function(data){

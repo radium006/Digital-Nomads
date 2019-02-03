@@ -8,20 +8,51 @@ const homeAway_apiKey = "MDcwNTJiYjAtY2EwZC00MWFkLWI1NDYtOWQ3MWFlOTFhN2Rm"
 
 $(document).ready(function(){ //might be a problem
 
+    
     let urlParams = new URLSearchParams(window.location.search);
     var theCity = urlParams.get('city')
     // console.log(theCity)
     ///-------------------------------main-----------------------------------//
-    $.get((numbeo_url + "cities?api_key=" + api_key), function(data){  
-        searchForCity(data.cities, theCity) 
-    })
-    $.get((numbeo_url + "indices?api_key=" + api_key + "&query=" + theCity.replace(/\s/g,'')), function(data){
-        getStats(data)
+    
+    $.ajax({
+        type: 'GET',
+        url: numbeo_url + "cities?api_key=" + api_key,
+        headers: {
+            'Content-Type': 'application/javascript', 
+            "Access-Control-Allow-Origin":"*"   
+        },
+        crossDomain: true,
+        
+        
+        
+    }).then(function(data){
+        console.log("HEYYYYYY" + data)
+        searchForCity(data.cities, theCity)
     })
 
-    getWifi(theCity)
-    getWorkspaces(theCity)
-    getRooms(theCity)
+
+    $.ajax({
+        type: 'GET',
+        url: (numbeo_url + "indices?api_key=" + api_key + "&query=" + theCity.replace(/\s/g,'')),
+        headers: {
+            'Content-Type': 'application/javascript',
+            "Access-Control-Allow-Origin":"*"
+        },
+        crossDomain: true
+    }).then(function(data){
+        getStats(data)
+    })
+    
+    // $.get((numbeo_url + "cities?api_key=" + api_key), function(data){  
+    //     searchForCity(data.cities, theCity) 
+    // }) 
+    // $.get((numbeo_url + "indices?api_key=" + api_key + "&query=" + theCity.replace(/\s/g,'')), function(data){
+    //     getStats(data)
+    // })
+
+    // getWifi(theCity)
+    // getWorkspaces(theCity)
+    // getRooms(theCity)
 
     function getStats(city){
         $("#stat-box").append(`<p>Index realative to New York City</p>`)
@@ -213,7 +244,8 @@ $(document).ready(function(){ //might be a problem
         fetch(`https://ws.homeaway.com/public/search?q=${cityLocation}&maxBedrooms=1&maxNightlyPrice=100&pageSize=6&imageSize=LARGE`, {
     headers: {
     Authorization: `Bearer ${homeAway_apiKey}`
-        }
+        },
+    dataType: 'JSONP'    
      }).then(function(response){
        console.log(response)
        return response.json()

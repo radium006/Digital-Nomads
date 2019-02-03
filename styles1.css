@@ -77,7 +77,7 @@ header {
 
 
   .card-body{
-    background: #8dc1b1;
+    background-color: rgb(50, 50, 235);
     color: white;
     height:150px;
   }
